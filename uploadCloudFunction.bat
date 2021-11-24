@@ -1,0 +1,1 @@
+"E:\微信web开发者工具\cli.bat" cloud functions deploy --e newpicture-9gfdwu1vedeced36 --n quickstartFunctions --r --project "C:\Users\信息\Desktop\小程序\小程序学习\小芒手账" --report_first --report
