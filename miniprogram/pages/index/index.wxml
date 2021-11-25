@@ -1,1 +1,145 @@
-<view>1111</view>
+<view class="padding-lr">
+  <view class="">
+    <view class="flex">
+      <text class="text-gray text-lg">本月支出</text>
+      <free-icon name="attentionfill" color="#919293" class="margin-left"></free-icon>
+    </view>
+    <view class="text-xxl text-bold margin-top-xs">6371.70</view>
+  </view>
+  <view class="margin-top flex">
+    <view class="flex-sub">
+      <text class="text-gray">本月收入</text>
+      <view class="text-lg text-bold margin-top-xs">1，341，546.00</view>
+    </view>
+    <view class="flex-sub">
+      <text class="text-gray">结余</text>
+      <view class="text-lg text-bold margin-top-xs">1，341，546.00</view>
+    </view>
+  </view>
+
+  <!-- 我的预算 -->
+  <view class="bg-green  margin-top radius flex align-center">
+    <view class="container ">
+        <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}"></ec-canvas>
+      </view>  
+    <view class="flex-twice ">
+      <view class="flex align-center">
+        <text>我的预算</text>
+        <free-icon name="playfill" size="22" color="#fff" class="margin-left-sm"></free-icon>
+      </view>
+      <view class="margin-top-sm flex align-center">
+        <view class="flex-treble">
+          <text class="text-sm">总预算</text>
+          <view class="text-bold text-xl">17，000</view>
+        </view>
+        <view class="line"></view>
+        <view class="flex-treble">
+          <text class="text-sm">剩余预算</text>
+          <view class="text-bold text-xl">16，002.58</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 账单 -->
+  <free-gap height="40"></free-gap>
+  <view >
+    <view class="flex align-center justify-between padding-tb-sm">
+      <view class="flex align-center">
+        <text class="text-black text-bold text-xl">今天</text>
+        <text class="margin-left-sm ">5月10日 周日</text>
+      </view>
+
+      <view class="text-gray  flex flex-direction align-end">
+        <view>收 <text class="text-green text-bold">18，132.05</text></view>
+        <view>支 <text class="text-red text-bold">8，202</text></view>
+      </view>
+    </view>
+
+    <view class="bg-white radius padding-lr">
+      <view class="flex align-center ">
+        <free-icon name="home" class="padding-right"></free-icon>
+        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+          <view class="flex flex-direction">
+            <text class="text-main">公共交通</text>
+            <text class="text-gray ">21:03</text>
+          </view>
+          <view class="text-lg text-green text-bold">+25.35</view>
+        </view>
+      </view>
+      <view class="flex align-center ">
+        <free-icon name="home" class="padding-right"></free-icon>
+        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+          <view class="flex flex-direction">
+            <text class="text-main">公共交通</text>
+            <text class="text-gray">21:03</text>
+          </view>
+          <view class="text-lg text-red text-bold">-25.35</view>
+        </view>
+      </view>
+      <view class="flex align-center ">
+        <free-icon name="home" class="padding-right"></free-icon>
+        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+          <view class="flex flex-direction">
+            <text class="text-main">公共交通</text>
+            <text class="text-gray">21:03</text>
+          </view>
+          <view class="text-lg text-red text-bold">-25.35</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view >
+    <view class="flex align-center justify-between padding-tb-sm">
+      <view class="flex align-center">
+        <text class="text-black text-bold text-xl">昨天</text>
+        <text class="margin-left-sm ">5月9日 周六</text>
+      </view>
+
+      <view class="text-gray  flex flex-direction align-end">
+        <view>收 <text class="text-green text-bold">18，132.05</text></view>
+        <view>支 <text class="text-red text-bold">8，202</text></view>
+      </view>
+    </view>
+
+    <view class="bg-white radius padding-lr">
+      <view class="flex align-center ">
+        <free-icon name="home" class="padding-right"></free-icon>
+        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+          <view class="flex flex-direction">
+            <text class="text-main">公共交通</text>
+            <text class="text-gray ">21:03</text>
+          </view>
+          <view class="text-lg text-green text-bold">+25.35</view>
+        </view>
+      </view>
+      <view class="flex align-center ">
+        <free-icon name="home" class="padding-right"></free-icon>
+        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+          <view class="flex flex-direction">
+            <text class="text-main">公共交通</text>
+            <text class="text-gray">21:03</text>
+          </view>
+          <view class="text-lg text-red text-bold">-25.35</view>
+        </view>
+      </view>
+      <view class="flex align-center ">
+        <free-icon name="home" class="padding-right"></free-icon>
+        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+          <view class="flex flex-direction">
+            <text class="text-main">公共交通</text>
+            <text class="text-gray">21:03</text>
+          </view>
+          <view class="text-lg text-red text-bold">-25.35</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<free-gap height="150"></free-gap>
+<free-tabbar 
+  list="{{list}}"
+  current="{{current}}" 
+  bind:click="change"></free-tabbar>

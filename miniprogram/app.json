@@ -1,15 +1,29 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/statistics/statistics",
+    "pages/record/record",
+    "pages/bill/bill",
+    "pages/my/my"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#f7f8fa",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#f7f8fa",
     "navigationBarTitleText": "遇见记账",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2",
-  "lazyCodeLoading": "requiredComponents"
+  "usingComponents": {
+    "free-tabs": "/components/free-tabs/free-tabs",
+    "free-tag": "/components/free-tag/free-tag",
+    "free-navBar": "/components/free-navBar/free-navBar",
+    "free-icon": "/components/free-icon/free-icon",
+    "free-title": "/components/free-title/free-title",
+    "free-gap": "/components/free-gap/free-gap",
+    "free-list": "/components/free-list/free-list",
+    "free-backTop": "/components/free-backTop/free-backTop",
+    "free-tabbar":"/components/free-tabbar/free-tabbar",
+    "free-image": "/components/free-image/free-image"
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,3 +1,20 @@
-page {
-  
+.line {
+  width: 2rpx;
+  height: 40rpx;
+  margin: 0 40rpx 0 0;
+  background-color: rgba(255,2555, 25, .3);
 }
+ec-canvas {
+  width: 220rpx;
+  height: 220rpx;
+}
+.container {
+  width: 240rpx;
+  height: 200rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 

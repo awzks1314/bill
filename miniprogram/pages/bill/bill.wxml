@@ -1,0 +1,5 @@
+<view class="bg-gray">111</view>
+<free-tabbar 
+  list="{{list}}"
+  current="{{current}}" 
+  bind:click="change"></free-tabbar>

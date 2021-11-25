@@ -1,0 +1,112 @@
+<view class="padding-lr padding-top-sm padding-bottom flex align-center justify-between">
+  <text class="text-xl text-main text-bold">统计</text>
+  <view class="flex align-center ">
+    <text class="tabWidth {{selectIndex==0?'selected':''}}" bindtap="changeSelect" data-index="0">支出</text>
+    <text class="tabWidth {{selectIndex==1?'selected':''}}" bindtap="changeSelect" data-index="1">收入</text>
+  </view>
+</view>
+
+<view class="padding-lr flex align-center" >
+  <free-icon name="rankfill" class="padding-right"></free-icon>
+  <scroll-view class="timeTab" scroll-x  scroll-left="{{scrollLeft}}" scroll-with-animation>
+    <view class="timeTabBox"> 
+      <view wx:for="{{10}}" wx:key="index" class="titmeTabLi" bindtap="timeSelect" data-index="{{index}}">
+        <text class="{{timeIndex==index?'timeSelect':''}}">{{index+1}}月</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="text-green padding-left text-bold">月</view>
+</view>
+
+
+<view class="paddingg-left flex justify-center">
+  <view class="container ">
+    <ec-canvas id="mychart-dom-line" class="linePic"  canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  </view> 
+</view>
+
+<view class="padding-lr-lg padding-tb">
+  <view class="bg-green radius padding-lr-lg padding-tb flex align-center justify-between">
+    <view class="flex flex-direction align-center">
+      <text>支出笔数</text>
+      <text class="text-lg text-bold margin-top-xs">234</text>
+    </view>
+    <view class="line"></view>
+    <view class="flex flex-direction align-center">
+      <text>共计支出</text>
+      <text class="text-lg text-bold margin-top-xs text-price">234</text>
+    </view>
+    <view class="line"></view>
+    <view class="flex flex-direction align-center">
+      <text>日均支出</text>
+      <text class="text-lg text-bold margin-top-xs text-price">234</text>
+    </view>
+  </view>
+</view>
+
+<!-- 支出分类 -->
+<view class="padding-lr ">
+  <view class="flex align-center justify-between">
+    <text class=" text-lg text-bold">支出分类</text>
+    <free-icon name="right" color="#919293" size="24"></free-icon>
+  </view>
+</view>
+<view class="flex align-center">
+  <view class="zhichuPiceture">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie"class="zhichu"  ec="{{ pie }}"></ec-canvas>
+  </view>
+  <view class="flex-sub ">
+    <view class="flex align-center justify-around padding-tb-xs" wx:for="{{4}}" wx:key="index">
+      <view class="flex align-center">
+        <text class="dot dot{{index + 1}}"></text>
+        <text>学习进修</text>
+      </view>
+      <view class="flex align-center">
+        <text class="text-bold">42</text>
+        <text class="text-sm">%</text>
+        <image src="../../static/images/icon/up.png" class="iconImage"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 支出排行 -->
+<view class="padding-lr ">
+  <view class="flex align-center justify-between">
+    <text class=" text-lg text-bold">支出排行</text>
+    <free-icon name="right" color="#919293" size="24"></free-icon>
+  </view>
+  <view class="flex align-center padding-tb">
+    <text class="dot bg-green"></text>
+    <text class="text-gray">您在「娱乐购物」的花费比上个月多了20%</text>
+  </view>
+
+  <view>
+    <view class="flex align-center padding-bottom" wx:for="{{4}}" wx:key="index">
+      <free-icon name="home"></free-icon>
+      <view class="flex-sub flex flex-direction padding-left">
+        <view class="flex-sub flex justify-between">
+          <text>学习进修</text>
+          <view class="flex align-center">
+            <view class="text-price">526，100</view>
+            <!-- <free-icon name="right" color="#919293" size="24"></free-icon> -->
+          </view>
+        </view>
+        <view class="flex-sub">
+          <free-progress 
+            width="60%"
+            height="6rpx"
+            widthBg="{{colorList[index]}}"
+            ></free-progress>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<free-gap height="150"></free-gap>
+<free-tabbar 
+  list="{{list}}"
+  current="{{current}}" 
+  bind:click="change"></free-tabbar>

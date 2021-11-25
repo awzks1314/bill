@@ -13,7 +13,40 @@ App({
         traceUser: true,
       });
     }
-
-    this.globalData = {};
+  },
+  globalData:{
+    colorList:['#5470c5','#90cc75','#fac858','#ee6665','#73c0de','#3ba272','#fc8452','#9a60b4'],
+    tabbar:[
+      {
+        "pagePath": "/pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "../../static/images/tabbarIcon/shouye.png",
+        "iconPath": "../../static/images/tabbarIcon/shouye1.png"
+      },
+      {
+        "pagePath": "/pages/statistics/statistics",
+        "text": "统计",
+        "selectedIconPath": "../../static/images/tabbarIcon/shijian.png",
+        "iconPath": "../../static/images/tabbarIcon/shijian1.png"
+      },
+      {
+        "pagePath": "/pages/record/record",
+        "text": "记账",
+        "selectedIconPath": "../../static/images/tabbarIcon/zengjia.png",
+        "iconPath": "../../static/images/tabbarIcon/zengjia1.png"
+      },
+      {
+        "pagePath": "/pages/bill/bill",
+        "text": "流水",
+        "selectedIconPath": "../../static/images/tabbarIcon/shuju.png",
+        "iconPath": "../../static/images/tabbarIcon/shuju1.png"
+      },
+      {
+        "pagePath": "/pages/my/my",
+        "text": "我的",
+        "selectedIconPath": "../../static/images/tabbarIcon/huiyuan.png",
+        "iconPath": "../../static/images/tabbarIcon/huiyuan1.png"
+      }
+    ]
   }
 });

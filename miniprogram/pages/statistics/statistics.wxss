@@ -1,0 +1,102 @@
+.tabWidth{
+  width: 80rpx;
+  text-align: center;
+  position: relative;
+}
+.selected{
+  color: var(--green);
+  font-weight: 800;
+}
+.selected::after {
+  content: ' ';
+  width: 30rpx;
+  height: 6rpx;
+  border-radius: 4rpx;
+  background-color: var(--green);
+  position: absolute;
+  bottom: -10rpx;
+  left: 25rpx;
+}
+.line {
+  width: 2rpx;
+  height: 40rpx;
+  margin: 0 40rpx 0 0;
+  background-color: rgba(255,2555, 25, .3);
+}
+.container {
+  width: 90%;
+  height: 400rpx;
+} 
+.linePic{
+  width: 100%;
+  height: 400rpx;
+}
+.zhichuPiceture{
+  width: 300rpx;
+  height: 300rpx;
+}
+.zhichu{
+  width: 300rpx;
+  height: 300rpx;
+}
+.iconImage{
+  width: 26rpx;
+  height: 26rpx;
+}
+.dot {
+  width:14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.timeTab{
+  width: 542rpx;
+  height: 80rpx;
+  white-space: nowrap;
+  position: relative;
+}
+.timeTabBox{
+  display: inline-flex;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+}
+.titmeTabLi {
+  display: inline-block;
+  width: 108rpx;
+  text-align: center;
+}
+
+.timeSelect{
+  background-color: var(--green);
+  color: #fff;
+  padding: 15rpx;
+  border-radius: 20rpx;
+}
+.dot1 {
+  background-color: #5470c5;
+}
+.dot2 {
+  background-color: #90cc75;
+}
+.dot3 {
+  background-color: #fac858;
+}
+.dot4 {
+  background-color: #ee6665;
+}
+.dot5 {
+  background-color: #73c0de;
+}
+.dot6 {
+  background-color: #3ba272;
+}
+.dot7 {
+  background-color: #fc8452;
+}
+.dot8 {
+  background-color: #9a60b4;
+}
+ 
