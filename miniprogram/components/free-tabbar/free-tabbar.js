@@ -76,7 +76,11 @@ Component({
         return
       }
       console.log(e.currentTarget.dataset)
-      if(e.currentTarget.dataset.type == 'url'){
+      if (e.currentTarget.dataset.index == 2 ) {
+        wx.navigateTo({
+          url: e.currentTarget.dataset.url,
+        })
+      }else if(e.currentTarget.dataset.type == 'url'){
         // 带有记忆路由跳转
         wx.redirectTo({
           url: e.currentTarget.dataset.url,

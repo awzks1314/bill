@@ -15,7 +15,8 @@ App({
     }
   },
   globalData:{
-    colorList:['#5470c5','#90cc75','#fac858','#ee6665','#73c0de','#3ba272','#fc8452','#9a60b4'],
+    
+    colorList:['#5470c5','#90cc75','#fac858','#ee6665','#73c0de','#3ba272','#fc8452','#9a60b4'],//颜色立标
     tabbar:[
       {
         "pagePath": "/pages/index/index",

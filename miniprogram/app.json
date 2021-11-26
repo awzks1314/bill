@@ -6,6 +6,37 @@
     "pages/bill/bill",
     "pages/my/my"
   ],
+  "tabBar": {
+    "custom": true,
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "/static/images/tabbarIcon/shouye.png",
+        "iconPath": "/static/images/tabbarIcon/shouye1.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "selectedIconPath": "/static/images/tabbarIcon/shijian.png",
+        "iconPath": "/static/images/tabbarIcon/shijian1.png"
+      },
+      
+      {
+        "pagePath": "pages/bill/bill",
+        "text": "流水",
+        "selectedIconPath": "/static/images/tabbarIcon/shuju.png",
+        "iconPath": "/static/images/tabbarIcon/shuju1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "selectedIconPath": "/static/images/tabbarIcon/huiyuan.png",
+        "iconPath": "/static/images/tabbarIcon/huiyuan1.png"
+      }
+    ]
+  },
+  
   "window": {
     "backgroundColor": "#f7f8fa",
     "backgroundTextStyle": "light",

@@ -1,1 +1,61 @@
-/* pages/record/record.wxss */
+.tabWidth{
+  width: 80rpx;
+  text-align: center;
+  position: relative;
+  color: rgba(255, 255, 255, .7);
+}
+.selected{
+  color: var(--white);
+  font-weight: 800;
+  font-size: 32rpx;
+}
+.selected::after { 
+  content: ' ';
+  width: 30rpx;
+  height: 6rpx;
+  border-radius: 4rpx;
+  background-color: var(--white);
+  position: absolute;
+  bottom: -10rpx;
+  left: 25rpx;
+}
+
+
+.twoBoxContent{
+  position: relative;
+  background-color: var(--ghostWhite);
+  top: -80rpx;
+  left: 0;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+
+.iconBox{
+  height: 126rpx;
+}
+.iconLi{
+  width: 100rpx;
+  height: 106rpx;
+  margin-right: 14rpx;
+}
+.iconLi:nth-child(6n){
+  margin-right: 0;
+}
+.iconSelected {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.saveButton{
+  position: fixed;
+  width: calc(100% - 40rpx);
+  bottom: 40rpx;
+  bottom: calc(40rpx + constant(safe-area-inset-bottom));  
+  bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+.butt{
+  border: 2rpx solid var(--green);
+  color: var(--green);
+  padding: 28rpx;
+}

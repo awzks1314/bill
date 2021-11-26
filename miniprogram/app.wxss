@@ -1251,6 +1251,11 @@ button.icon.lg {
 	flex-basis: 80%;
 }
 
+.flex-center{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .flex-sub {
 	flex: 1;
 }

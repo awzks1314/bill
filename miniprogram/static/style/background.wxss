@@ -6,7 +6,7 @@ page{
 	--yellow: #fbbd08;
 	--olive: #1c1d1a;
 	--green: #4ea38d;
-	--cyan: #1cbbb4;
+	--cyan: #1cbbb4; 
 	--blue: #0081ff;
 	--purple: #6739b6;
 	--mauve: #9c26b0;

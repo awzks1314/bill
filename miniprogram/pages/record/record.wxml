@@ -1,5 +1,77 @@
-<view class="bg-gray">111</view>
-<free-tabbar 
-  list="{{list}}"
-  current="{{current}}" 
-  bind:click="change"></free-tabbar>
+<view style='height:0;'>
+  <free-navBar  background='rgba(0,0,0,0)' iconTheme="white" >
+</free-navBar>
+</view>
+
+<view class="bg-green padding">
+  <free-gap height="100"></free-gap>
+  <view class="flex align-center ">
+    <text class="tabWidth {{selectIndex==0?'selected':''}}" bindtap="changeSelect" data-name="selectIndex" data-index="0">支出</text>
+    <text class="tabWidth {{selectIndex==1?'selected':''}}" bindtap="changeSelect" data-name="selectIndex" data-index="1">收入</text>
+  </view>
+
+  <view class="text-xxl text-bold padding-tb ">36，211.00</view>
+
+  <view class="flex align-center">
+    <free-icon name="rechargefill" color="#fff"></free-icon>
+    <picker bindchange="bindPickerChange" class="padding-left-sm" value="{{payIndex}}" range="{{payType}}">
+      <view class="picker flex align-center" >
+        {{payType[payIndex]}}
+        <free-icon name="triangledownfill" color="#fff" size="20" class="padding-left-xs"></free-icon>
+      </view>
+    </picker>
+  </view>
+
+  <free-gap height="80"></free-gap>
+</view>
+
+<view class="twoBoxContent  padding-sm">
+  <view class="padding-lr-sm  bg-white radius-lg">
+    <view class="flex align-center justify-between padding-tb-sm">
+      <text class="text-black text-bold">最近使用</text>
+      <view class="flex align-center" bindtap="openMoreIcon">
+        <text class="text-green">{{moreShow?'收缩':'展开'}}</text>
+        <free-icon name="{{moreShow?'triangleupfill':'triangledownfill'}}" color="#4ea38d" size="20" class="padding-left-xs"></free-icon>
+      </view>
+    </view>
+
+    <view class="iconBox flex flex-wrap" animation="{{animationData}}">
+      <view class="iconLi flex flex-direction align-center padding-tb-xs radius margin-bottom-sm {{iconIndex==index?'iconSelected':''}}" wx:for="{{10}}" wx:key="index" bindtap="changeSelect" data-name="iconIndex" data-index="{{index}}">
+        <free-icon name="home" size="44" color="{{iconIndex==index?'#fff':'#333'}}"></free-icon>
+        <text class="text-sm margin-top-xs ">餐饮</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-top-sm flex align-center">
+    <view class="bg-white radius-lg padding flex align-center flex-sub">
+      <text class="text-bold padding-right">时间</text>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="text-gray">{{time || '选择时间'}}</view>
+      </picker>
+    </view>
+
+    <view class="margin-left bg-white radius-lg padding " bindtap="selectNowTime">
+      <text class="text-green">当前时间</text>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="padding-top-sm flex align-center">
+    <view class="bg-white radius-lg padding flex align-center flex-sub">
+      <text class="text-bold padding-right">备注</text>
+      <input type="text" class="text-gray" placeholder-class="text-gray" placeholder="暂不支持备注信息" disabled="true"/>
+    </view>
+  </view>
+
+
+  <view class="saveButton padding-top-sm flex align-center justify-between">
+    <view class="flex-twice bg-green radius-lg padding flex-center">
+      保存
+    </view>
+    <view class="flex-sub  radius-lg butt margin-left flex-center bg-white">
+      再记一笔
+    </view>
+  </view>
+</view>
+<free-gap height="150"></free-gap>

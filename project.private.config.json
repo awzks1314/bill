@@ -17,6 +17,12 @@
           "pathName": "pages/statistics/statistics",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/record/record",
+          "pathName": "pages/record/record",
+          "query": "",
+          "scene": null
         }
       ]
     }
