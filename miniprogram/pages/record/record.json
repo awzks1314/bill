@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "free-navBar":"/components/free-navBar/free-navBar"
+    "free-navBar":"/components/free-navBar/free-navBar",
+    "free-bottom-popup":"/components/free-bottom-popup/free-bottom-popup"
   },
   "navigationStyle": "custom"
 }

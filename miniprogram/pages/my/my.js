@@ -1,4 +1,5 @@
 const app = getApp()
+const util = require('../../utils/tool.js')
 Page({
 
   /**
@@ -9,13 +10,14 @@ Page({
     current:4,//当前选中
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+  onShow() {
+    this.calculate()
   },
-
+  // 计算方法，按年月归纳
+  calculate() {
+    console.log(app.globalData.listInfo)
+    // 计算当月
+  },
   /**
    * 用户点击右上角分享
    */

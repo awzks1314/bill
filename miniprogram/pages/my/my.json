@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "free-navBar":"/components/free-navBar/free-navBar"
+  }
 }

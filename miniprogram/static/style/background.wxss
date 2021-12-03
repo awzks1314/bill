@@ -1,17 +1,17 @@
 /* 背景 */
 page{
   /* 标准色 */
-  --red: #e54d42;
+  --red: #ea706b;
 	--orange: #ff5722;
 	--yellow: #fbbd08;
 	--olive: #1c1d1a;
-	--green: #4ea38d;
+	--green: #50a582;
 	--cyan: #1cbbb4; 
 	--blue: #0081ff;
 	--purple: #6739b6;
 	--mauve: #9c26b0;
 	--pink: #e03997;
-	--brown: #e49c68;
+	--brown: #e99e6c;
 	--grey: #8799a3;
 	--black: #333333;
 	--darkGray: #666666;
@@ -24,7 +24,7 @@ page{
 	--yellowLight: #fef2ce;
 	--oliveLight: #e8f4d9;
 	--greenLight: #d7f0db;
-	--cyanLight: #d2f1f0;
+	--cyanLight: #cfd1d6;
 	--blueLight: #cce6ff;
 	--purpleLight: #e1d7f0;
 	--mauveLight: #ebd4ef;
@@ -194,7 +194,7 @@ page{
 }
 
 .bg-gray {
-	background-color: #f0f0f0;
+	background-color: var(--gray);
 	color: var(--black);
 }
 

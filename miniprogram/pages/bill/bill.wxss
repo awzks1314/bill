@@ -1,1 +1,22 @@
-/* pages/bill/bill.wxss */
+
+.listBox{
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+}
+
+.listLiRight{
+  padding-left: 100rpx;
+}
+
+.listDay{
+  
+  padding: 20rpx;
+  background-color: var(--ghostWhite);
+}
+
+.listDayli{
+  height: 100rpx;
+}
+.listDayli:nth-last-child(1) {
+  border-bottom: 0rpx solid #fff !important;
+}

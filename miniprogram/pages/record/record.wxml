@@ -3,14 +3,16 @@
 </free-navBar>
 </view>
 
-<view class="bg-green padding">
+<view class="{{selectIndex==0?'bg-red':'bg-green'}} padding">
   <free-gap height="100"></free-gap>
   <view class="flex align-center ">
     <text class="tabWidth {{selectIndex==0?'selected':''}}" bindtap="changeSelect" data-name="selectIndex" data-index="0">支出</text>
     <text class="tabWidth {{selectIndex==1?'selected':''}}" bindtap="changeSelect" data-name="selectIndex" data-index="1">收入</text>
   </view>
 
-  <view class="text-xxl text-bold padding-tb ">36，211.00</view>
+  <view class="text-lx text-bold padding-tb flex align-center" bindtap="openCounter" style="height: 140rpx;">
+    <view class="flex-center padding-top-xs">{{realPrice?priceStr:'点击输入金额'}}</view>
+  </view>
 
   <view class="flex align-center">
     <free-icon name="rechargefill" color="#fff"></free-icon>
@@ -26,19 +28,31 @@
 </view>
 
 <view class="twoBoxContent  padding-sm">
-  <view class="padding-lr-sm  bg-white radius-lg">
-    <view class="flex align-center justify-between padding-tb-sm">
-      <text class="text-black text-bold">最近使用</text>
-      <view class="flex align-center" bindtap="openMoreIcon">
+  <view class="bg-white radius-lg">
+    <view class="flex align-center justify-between padding">
+      <view class="flex-center">
+        <text class="text-black text-bold padding-right">账单类别</text>
+        <text class="text-gray">{{iconList[iconIndex].name}}</text>
+      </view>
+      <!-- <view class="flex align-center" bindtap="openMoreIcon">
         <text class="text-green">{{moreShow?'收缩':'展开'}}</text>
         <free-icon name="{{moreShow?'triangleupfill':'triangledownfill'}}" color="#4ea38d" size="20" class="padding-left-xs"></free-icon>
-      </view>
+      </view> -->
     </view>
 
-    <view class="iconBox flex flex-wrap" animation="{{animationData}}">
-      <view class="iconLi flex flex-direction align-center padding-tb-xs radius margin-bottom-sm {{iconIndex==index?'iconSelected':''}}" wx:for="{{10}}" wx:key="index" bindtap="changeSelect" data-name="iconIndex" data-index="{{index}}">
-        <free-icon name="home" size="44" color="{{iconIndex==index?'#fff':'#333'}}"></free-icon>
-        <text class="text-sm margin-top-xs ">餐饮</text>
+    <view class="iconBox flex flex-wrap align-center justify-center" animation="{{animationData}}">
+      <view class="iconLi flex flex-direction align-center justify-center radius " wx:for="{{iconList}}" wx:key="index" bindtap="changeSelect" data-name="iconIndex" data-index="{{index}}">
+        <view class="iconfontBox flex-center  {{iconIndex==index && selectIndex==0?'iconSelected bg-red':iconIndex==index && selectIndex==1?'iconSelected bg-green':''}} ">
+          <text class="iconfont icon-{{item.type}}" style="color:{{iconIndex==index?'#fff':'#333'}}"></text>
+        </view>
+        <text class="text-sm margin-top-xs ">{{item.name}}</text>
+      </view>
+
+      <view class="iconLi flex flex-direction align-center justify-center radius " bindtap="goToUrl" data-url="/pages/moreCategory/moreCategory">
+        <view class="iconfontBox flex-center ">
+          <free-icon name="cascades" size="46"></free-icon>
+        </view>
+        <text class="text-sm margin-top-xs ">更多类别</text>
       </view>
     </view>
   </view>
@@ -52,7 +66,7 @@
     </view>
 
     <view class="margin-left bg-white radius-lg padding " bindtap="selectNowTime">
-      <text class="text-green">当前时间</text>
+      <text class="{{selectIndex==0?'text-red':'text-green'}}">当前时间</text>
     </view>
   </view>
 
@@ -66,12 +80,53 @@
 
 
   <view class="saveButton padding-top-sm flex align-center justify-between">
-    <view class="flex-twice bg-green radius-lg padding flex-center">
+    <view class="flex-twice {{selectIndex==0?'bg-red':'bg-green'}} radius-lg padding flex-center" bindtap="save">
       保存
     </view>
-    <view class="flex-sub  radius-lg butt margin-left flex-center bg-white">
+    <view class="flex-sub  radius-lg {{selectIndex==0?'butts':'butt'}} margin-left flex-center bg-white" bindtap="saveAndAlign">
       再记一笔
     </view>
   </view>
 </view>
 <free-gap height="150"></free-gap>
+
+<free-bottom-popup show="{{counterShow}}" bind:close="openCounter" mask="{{false}}">
+  <view class="counterBox padding">
+    <view class="flex align-center justify-between">
+      <view class="flex align-center ">
+        <text class="tabWidth {{selectIndex==0?'selected':''}}" bindtap="changeSelect" data-name="selectIndex" data-index="0">支出</text>
+        <text class="tabWidth {{selectIndex==1?'selected':''}}" bindtap="changeSelect" data-name="selectIndex" data-index="1">收入</text>
+      </view>
+
+      <free-icon name="unfold" color="#fff"  bindtap="openCounter"></free-icon>
+    </view>
+
+    <!-- <view class="margin-tb bg-white padding-sm radius flex align-center justify-between">
+      <text>当前金额</text> 
+      <text> {{realPrice?realPrice:0}}</text>
+    </view> -->
+    <view class="flex flex-wrap padding-top">
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="7">7</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="8">8</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="9">9</view>
+      <view class="numberLi text-bold bg-white" bindtap="clearStr">
+        C
+      </view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="4">4</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="5">5</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="6">6</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="0000" >0000</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="1">1</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="2">2</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="3">3</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="." data-type="symbol">.</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="0" >0</view>
+      <view class="numberLi text-bold bg-white" bindtap="addPriceStr" data-str="00">00</view>
+      <view class="numberLi text-bold  bg-white" bindtap="addPriceStr" data-str="000">000</view>
+      <view class="numberLi text-bold {{selectIndex==0?'bg-red':'bg-green'}}" bindtap="openCounter">
+        
+        <text>确定</text>
+      </view>
+    </view>
+  </view>
+</free-bottom-popup>

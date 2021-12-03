@@ -23,6 +23,18 @@
           "pathName": "pages/record/record",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/bill/bill",
+          "pathName": "pages/bill/bill",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
         }
       ]
     }

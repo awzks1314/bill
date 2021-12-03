@@ -1,4 +1,83 @@
-<view class="bg-gray">111</view>
+<free-navBar title="{{listInfo.year || '2021'}}年"  background='rgba(0,0,0,0)' iconTheme="white" >
+</free-navBar>
+<view class="">
+    <free-input 
+    
+    placeholder='尝试搜索「早餐」'
+    bind:input="input"
+    bgColor="#f7f8fa"
+    inputBg="#fff"
+    extreaWord="搜索"
+    extreaColor="#4ea38d"
+    bind:confirm = "confirm"
+    bind:close = "close" 
+  ></free-input>
+</view>
+
+<view class="padding">
+  <view class="flex align-center justify-center">
+    <text class="text-center text-gray">本年账单（元）</text>
+    <free-icon name="attention" color="#aaa"></free-icon>
+  </view>
+  <view class=" padding-tb-sm text-center text-lx {{listInfo.expend > listInfo.income?'text-red':'text-green'}}  text-bold">
+    {{listInfo.expend > listInfo.income?'- ':'+ '}}{{total}}
+  </view>
+
+  <view class="flex align-center justify-around">
+    <view class="flex flex-direction align-center">
+      <text class="text-gray">支出</text>
+      <text class="text-red text-lg text-bold padding-top-xs">- {{listInfo.expendStr || '0'}}</text>
+    </view>
+    <view class="flex flex-direction align-center">
+      <text class="text-gray">收入</text>
+      <text class="text-green text-lg text-bold padding-top-xs">+ {{listInfo.income || '0'}}</text>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="listBox bg-white padding-lr " wx:if="{{listYearMonth && listYearMonth.length >0}}">
+  <view class=" padding-top flex align-center">
+    <text class="text-gray flex-sub">月份</text>
+    <text class="text-gray flex-treble">账户</text>
+  </view>
+
+  <view class="listLi flex flex-direction " wx:for="{{listYearMonth}}" wx:key="index" bindtap="openDay" data-index="{{index}}">
+    <view class="flex flex-sub ">
+      <view class="listLiLeft flex align-center ">
+        <text class="text-lg text-bold text-black">{{item.month}}</text>
+        <text class="text-gray text-sm" style="padding-left:6rpx;">月</text>
+      </view>
+      <view class="listLiRight flex-sub flex justify-between align-center   padding solid-bottom">
+        
+        <view class="flex  flex-direction padding-top-xs ">
+          <view>
+            <text class="text-gray">收</text>
+            <text class="padding-left-xs text-green text-bold">+ {{item.incomeStr}}</text>
+          </view>
+          <view class="padding-top-sm">
+            <text class="text-gray">支</text>
+            <text class="padding-left-xs text-red text-bold">- {{item.expendStr}}</text>
+          </view>
+        </view>
+        <view class="flex align-center">
+          <text class="text-bold {{item.expend > item.income ?'text-red':'text-green'}} text-lg">{{item.expend > item.income ?'-':'+'}} {{item.surplusStr}}</text>
+        </view>
+      </view>
+      <view class="flex flex-center">
+          <free-icon name="right" color="#aaa" size="20"></free-icon>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{listYearMonth && listYearMonth.length <= 0}}" class="flex align-center justify-center flex-direction">
+  <image src='../../static/images/empty/empty1.png' class="empty" ></image>
+  <text class="text-gray">暂无年度记录，请先去添加</text>
+</view>
+
+<free-gap height="150" ></free-gap>
 <free-tabbar 
   list="{{list}}"
   current="{{current}}" 

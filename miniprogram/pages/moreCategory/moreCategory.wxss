@@ -1,0 +1,26 @@
+.pageBox{
+  height: 100vh;
+}
+.leftBox{
+  width: 30%;
+  background-color: #f7f7f7;
+}
+.rightBox{
+  width: 70%;
+}
+
+.leftLi{
+  height: 120rpx;
+}
+.selected{
+  background-color: #fff;
+  color: var(--green);
+}
+.rightList{
+  height: 120rpx;
+  padding: 0 60rpx;
+}
+
+.rightLists{
+  height: 120rpx;
+}

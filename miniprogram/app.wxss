@@ -1,4 +1,5 @@
 @import '/static/style/background.wxss';
+@import '/static/style/icon.wxss';
 .text-main {
 	color: #000;
 }
@@ -14,7 +15,10 @@ page{
 	color: var(--black);
 	font-family: Helvetica Neue, Helvetica, sans-serif;
 }
-
+.empty{
+	width: 300rpx;
+	height: 300rpx;
+}
 view,
 scroll-view,
 swiper,
@@ -75,6 +79,10 @@ button::after {
 .dasheds-bottom,
 .dasheds-left {
 	position: relative;
+}
+
+.solid-bottom:nth-last-child(1) {
+	position: static;
 }
 
 .solid::after,
@@ -1048,6 +1056,10 @@ button.icon.lg {
 
 .text-xxl {
 	font-size: 44rpx;
+}
+
+.text-lx {
+	font-size: 60rpx;
 }
 
 .text-sl {

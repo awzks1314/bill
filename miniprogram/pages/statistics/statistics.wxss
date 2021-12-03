@@ -57,6 +57,11 @@
   white-space: nowrap;
   position: relative;
 }
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
 .timeTabBox{
   display: inline-flex;
   height: 80rpx;

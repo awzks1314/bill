@@ -1,25 +1,25 @@
 <view class="padding-lr">
   <view class="">
     <view class="flex">
-      <text class="text-gray text-lg">本月支出</text>
-      <free-icon name="attentionfill" color="#919293" class="margin-left"></free-icon>
+      <text class="text-gray text-lg">{{listMonth.month || '本'}}月支出</text>
+      <!-- <free-icon name="attentionfill" color="#919293" class="margin-left"></free-icon> -->
     </view>
-    <view class="text-xxl text-bold margin-top-xs">6371.70</view>
+    <view class="text-xxl text-bold margin-top-xs text-red">- {{expendStr || 0}}</view>
   </view>
   <view class="margin-top flex">
     <view class="flex-sub">
-      <text class="text-gray">本月收入</text>
-      <view class="text-lg text-bold margin-top-xs">1，341，546.00</view>
+      <text class="text-gray">{{listMonth.month || '本'}}月收入</text>
+      <view class="text-lg text-bold margin-top-xs text-green">+ {{incomeStr || 0}}</view>
     </view>
     <view class="flex-sub">
-      <text class="text-gray">结余</text>
-      <view class="text-lg text-bold margin-top-xs">1，341，546.00</view>
+      <text class="text-gray">{{listMonth.expend - listMonth.income>0?'入不敷出':'略有所获'}}</text>
+      <view class="text-lg text-bold margin-top-xs {{listMonth.expend - listMonth.income>0?'text-red':'text-green'}}">{{listMonth.expend - listMonth.income>0?'-':'+'}}{{surplusStr || '0'}}</view>
     </view>
   </view>
 
   <!-- 我的预算 -->
-  <view class="bg-green  margin-top radius flex align-center">
-    <view class="container ">
+  <view class="{{budget - listMonth.expend > 0?'bg-green':'bg-red'}}  margin-top radius flex align-center">
+    <view class="container " >
         <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}"></ec-canvas>
       </view>  
     <view class="flex-twice ">
@@ -28,14 +28,14 @@
         <free-icon name="playfill" size="22" color="#fff" class="margin-left-sm"></free-icon>
       </view>
       <view class="margin-top-sm flex align-center">
-        <view class="flex-treble">
+        <view class="flex-treble ">
           <text class="text-sm">总预算</text>
-          <view class="text-bold text-xl">17，000</view>
+          <view class="text-bold text-xl padding-top-xs">{{budgetStr}}</view>
         </view>
         <view class="line"></view>
-        <view class="flex-treble">
+        <view class="flex-treble ">
           <text class="text-sm">剩余预算</text>
-          <view class="text-bold text-xl">16，002.58</view>
+          <view class="text-bold text-xl padding-top-xs">{{residueBudget}}</view>
         </view>
       </view>
     </view>
@@ -43,101 +43,37 @@
 
   <!-- 账单 -->
   <free-gap height="40"></free-gap>
-  <view >
+  <view wx:for="{{listDay}}" wx:key="index">
     <view class="flex align-center justify-between padding-tb-sm">
-      <view class="flex align-center">
-        <text class="text-black text-bold text-xl">今天</text>
-        <text class="margin-left-sm ">5月10日 周日</text>
+      <view class="flex  flex-direction">
+        <text class="text-black text-bold text-xl">{{item.year}}年{{item.month}}月{{item.day}}日</text>
       </view>
-
       <view class="text-gray  flex flex-direction align-end">
-        <view>收 <text class="text-green text-bold">18，132.05</text></view>
-        <view>支 <text class="text-red text-bold">8，202</text></view>
+        <view>收 <text class="text-green text-bold">{{item.incomeStr}}</text></view>
+        <view>支 <text class="text-red text-bold">{{item.expendStr}}</text></view>
       </view>
     </view>
 
     <view class="bg-white radius padding-lr">
-      <view class="flex align-center ">
-        <free-icon name="home" class="padding-right"></free-icon>
-        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
+      <view class="flex align-center " wx:for="{{item.data}}" wx:key="_id" wx:for-item="items">
+        <text class="iconfont icon-{{items.category}} padding-right" ></text>
+        <view class=" padding-tb  flex align-center justify-between flex-sub "> 
           <view class="flex flex-direction">
-            <text class="text-main">公共交通</text>
-            <text class="text-gray ">21:03</text>
+            <text class="text-main">{{items.name || '其他'}}</text>
+            <text class="text-gray ">{{items.createrTime}}</text>
           </view>
-          <view class="text-lg text-green text-bold">+25.35</view>
-        </view>
-      </view>
-      <view class="flex align-center ">
-        <free-icon name="home" class="padding-right"></free-icon>
-        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
-          <view class="flex flex-direction">
-            <text class="text-main">公共交通</text>
-            <text class="text-gray">21:03</text>
-          </view>
-          <view class="text-lg text-red text-bold">-25.35</view>
-        </view>
-      </view>
-      <view class="flex align-center ">
-        <free-icon name="home" class="padding-right"></free-icon>
-        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
-          <view class="flex flex-direction">
-            <text class="text-main">公共交通</text>
-            <text class="text-gray">21:03</text>
-          </view>
-          <view class="text-lg text-red text-bold">-25.35</view>
-        </view>
-      </view>
-    </view>
-  </view>
-
-  <view >
-    <view class="flex align-center justify-between padding-tb-sm">
-      <view class="flex align-center">
-        <text class="text-black text-bold text-xl">昨天</text>
-        <text class="margin-left-sm ">5月9日 周六</text>
-      </view>
-
-      <view class="text-gray  flex flex-direction align-end">
-        <view>收 <text class="text-green text-bold">18，132.05</text></view>
-        <view>支 <text class="text-red text-bold">8，202</text></view>
-      </view>
-    </view>
-
-    <view class="bg-white radius padding-lr">
-      <view class="flex align-center ">
-        <free-icon name="home" class="padding-right"></free-icon>
-        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
-          <view class="flex flex-direction">
-            <text class="text-main">公共交通</text>
-            <text class="text-gray ">21:03</text>
-          </view>
-          <view class="text-lg text-green text-bold">+25.35</view>
-        </view>
-      </view>
-      <view class="flex align-center ">
-        <free-icon name="home" class="padding-right"></free-icon>
-        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
-          <view class="flex flex-direction">
-            <text class="text-main">公共交通</text>
-            <text class="text-gray">21:03</text>
-          </view>
-          <view class="text-lg text-red text-bold">-25.35</view>
-        </view>
-      </view>
-      <view class="flex align-center ">
-        <free-icon name="home" class="padding-right"></free-icon>
-        <view class=" padding-tb  flex align-center justify-between flex-sub solid-bottom"> 
-          <view class="flex flex-direction">
-            <text class="text-main">公共交通</text>
-            <text class="text-gray">21:03</text>
-          </view>
-          <view class="text-lg text-red text-bold">-25.35</view>
+          <view class="text-lg {{items.billType == 0?'text-red':'text-green'}} text-bold">{{items.billType == 0 ?'- ':'+ '}}{{items.priceStr}}</view>
         </view>
       </view>
     </view>
   </view>
 </view>
 
+
+<view wx:if="{{listInfo && listInfo.length <= 0}}" class="flex align-center justify-center flex-direction">
+  <image src='../../static/images/empty/empty1.png' class="empty" ></image>
+  <text class="text-gray">暂无记录，请先去添加</text>
+</view>
 <free-gap height="150"></free-gap>
 <free-tabbar 
   list="{{list}}"

@@ -1,1 +1,43 @@
-/* pages/my/my.wxss */
+page {
+  height: 100%;
+  /* background-color: #fff; */
+}
+.avatarUrl{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.nickName{
+  width: 360rpx;
+  font-weight: 700;
+  font-size: 36rpx;
+}
+.cardOne{
+  width: 82%;
+  height: 16rpx;
+  background-color: #c3c0b0;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+}
+
+.cardTwo{
+  width: 88%;
+  height: 16rpx;
+  background-color: #629f92;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+.cardThree{
+  width: 94%;
+  height: 160rpx;
+  background-color: #23232a;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+.contentBox{
+  height: 58%;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+}

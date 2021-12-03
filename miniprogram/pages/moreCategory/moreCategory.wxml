@@ -1,0 +1,16 @@
+<view class="pageBox flex">
+  <view class="leftBox">
+    <view class="leftLi flex-center {{iconIndex == index?'selected':''}}" wx:for="{{iconList}}" wx:key="index" bindtap="changeIconIndex" data-index="{{index}}">
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="rightBox bg-white">
+    <view class="rightList  " wx:for="{{iconList[iconIndex].children}}" wx:key="index" bindtap="changeCommon" data-type="{{item.type}}" data-name="{{item.name}}">
+      <view class="rightLists solid-bottom flex align-center">
+        <text class="iconfont icon-{{item.type}}"></text>
+        <text class="text-sm  padding-left-lg">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

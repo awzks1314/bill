@@ -1,4 +1,90 @@
-<view class="bg-gray">111</view>
+<free-navBar   background='rgba(0,0,0,0)' iconTheme="white" >
+</free-navBar>
+
+<view class="padding flex align-center">
+  <open-data type="userAvatarUrl" class="avatarUrl"></open-data>
+  <view class="flex-sub padding-left-lg flex flex-direction">
+    <open-data type="userNickName" class="nickName text-cut"></open-data>
+    <text class="text-gray margin-top-xs">坚持记账，做更好的自己。</text>
+  </view>
+  <free-icon name="right" color="#aaa" size="24"></free-icon>
+</view>
+
+<view class="padding-lr padding-top flex flex-direction align-center">
+  <view class="cardOne"></view>
+  <view class="cardTwo"></view>
+  <view class="cardThree padding-tb-sm padding-lr flex flex-direction justify-between">
+    <view>
+      <text class="text-white text-sm">我的账户</text>
+    </view>
+    <view class="flex align-center justify-between">
+      <view class="flex align-center">
+        <view class=" flex flex-direction ">
+          <text class="text-white" >21，511.75</text>
+          <text class="text-xs text-gray">总支出</text>
+        </view>
+        <view class=" flex flex-direction padding-left">
+          <text class=" text-white">2，165，641</text>
+          <text class="text-xs text-gray">总收入</text>
+        </view>
+      </view>
+
+      <view class="flex flex-direction align-end">
+        <text class="text-white">5，184，544</text>
+        <text class="text-xs text-gray">总资产</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="contentBox padding  shadow-main bg-white">
+  <!-- <view>多人记账成员</view> -->
+  <view class="padding-tb solid-bottom flex align-center justify-between">
+    <view class="flex align-center">
+      <free-icon name="friend" color="#629f92"></free-icon>
+      <text class="padding-left">多人成员</text>
+    </view>
+    <view class="flex align-center">
+      <text>共0位成员</text>
+      <free-icon name="right" size="24"></free-icon>
+    </view>
+  </view>
+  <view class="padding-tb solid-bottom flex align-center justify-between">
+    <view class="flex align-center">
+      <free-icon name="card_fill" color="#629f92"></free-icon>
+      <text class="padding-left">记账设置</text>
+    </view>
+    <free-icon name="right" size="24"></free-icon>
+  </view>
+  <view class="padding-tb solid-bottom flex align-center justify-between">
+    <view class="flex align-center">
+      <free-icon name="commentfill" color="#629f92"></free-icon>
+      <text class="padding-left">在线客服</text>
+    </view>
+    <free-icon name="right" size="24"></free-icon>
+  </view>
+  <view class="padding-tb solid-bottom flex align-center justify-between">
+    <view class="flex align-center">
+      <free-icon name="picfill" color="#629f92"></free-icon>
+      <text class="padding-left">关于遇见</text>
+    </view>
+    <free-icon name="right" size="24"></free-icon>
+  </view>
+  <!-- <view class="padding-tb solid-bottom flex align-center justify-between">
+    <view class="flex align-center">
+      <free-icon name="ticket_money_fill" color="#629f92"></free-icon>
+      <text class="padding-left">赞赏支持</text>
+    </view>
+    <free-icon name="right" size="24"></free-icon>
+  </view> -->
+  <view class="padding-tb solid-bottom flex align-center justify-between">
+    <view class="flex align-center">
+      <free-icon name="settings" color="#629f92"></free-icon>
+      <text class="padding-left">系统设置</text>
+    </view>
+    <free-icon name="right" size="24" ></free-icon>
+  </view>
+</view>
 <free-tabbar 
   list="{{list}}"
   current="{{current}}" 

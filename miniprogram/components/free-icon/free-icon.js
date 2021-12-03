@@ -11,7 +11,7 @@ Component({
     },
     color: {
       type: String,
-      value: '#333'
+      value: '#333333'
     }, 
     bold:{
       type:Boolean,
